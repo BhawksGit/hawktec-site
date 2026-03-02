@@ -11,91 +11,68 @@
   <style>
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     :root {
-      --bg:#0b0e14;--bg-card:#151b27;--border:#1c2333;--border-lit:#2a3550;
-      --teal:#3dd8c5;--teal-dim:rgba(61,216,197,0.12);
-      --text:#c9d1de;--text-bright:#eaf0f9;--text-muted:#6b7a94;--text-faint:#3d4b63;
-      --pixel:'Silkscreen',monospace;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;
+      --bg:#0b0e14; --bg-card:#151b27; --border:#1c2333; --border-lit:#2a3550;
+      --teal:#3dd8c5; --teal-dim:rgba(61,216,197,0.12);
+      --text:#c9d1de; --text-bright:#eaf0f9; --text-muted:#6b7a94; --text-faint:#3d4b63;
+      --pixel:'Silkscreen',monospace; --mono:'Space Mono',monospace; --sans:'DM Sans',sans-serif;
     }
-    html{scroll-behavior:smooth}
-    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
-    body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:9999}
-    .wrap{max-width:720px;margin:0 auto;padding:0 20px}
-
-    .crumb{padding:20px 0;font-family:var(--mono);font-size:0.72rem;display:flex;align-items:center;gap:8px;color:var(--text-faint)}
-    .crumb a{color:var(--text-muted);text-decoration:none;transition:color 0.15s}
-    .crumb a:hover{color:var(--teal)}
-
-    .ph{padding:36px 0 28px}
-    .ph .badge{display:inline-block;padding:3px 10px;background:var(--teal-dim);border:1px solid rgba(61,216,197,0.18);border-radius:3px;font-family:var(--pixel);font-size:0.55rem;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px}
-    .ph h1{font-size:1.7rem;font-weight:700;color:var(--text-bright);letter-spacing:-0.02em;margin-bottom:8px}
-
-    .sec{padding:24px 0;border-top:1px solid var(--border)}
-    .sec h2{font-size:1rem;font-weight:700;color:var(--text-bright);margin-bottom:10px}
-    .sec p{color:var(--text-muted);margin-bottom:12px;font-size:0.9rem}
-    .sec a{color:var(--teal);text-decoration:none;border-bottom:1px dashed var(--border-lit)}
-    .sec a:hover{border-color:var(--teal)}
-
-    .back-link{
-      display:inline-flex;align-items:center;gap:6px;
-      margin-top:16px;padding:8px 14px;
-      background:var(--teal-dim);border:1px solid rgba(61,216,197,0.18);border-radius:4px;
-      color:var(--teal);text-decoration:none;font-family:var(--mono);font-size:0.72rem;
-      transition:all 0.15s;
-    }
-    .back-link:hover{background:rgba(61,216,197,0.18);border-color:var(--teal)}
-
-    footer{border-top:1px solid var(--border);padding:28px 0;text-align:center}
-    footer p{font-family:var(--mono);font-size:0.68rem;color:var(--text-faint)}
-    footer a{color:var(--text-muted);text-decoration:none}
-    footer a:hover{color:var(--teal)}
+    html { scroll-behavior:smooth; }
+    body { font-family:var(--sans); background:var(--bg); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased; }
+    body::after { content:''; position:fixed; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px); pointer-events:none; z-index:9999; }
+    .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+    .crumb { padding:20px 0; font-family:var(--mono); font-size:0.72rem; display:flex; align-items:center; gap:8px; color:var(--text-faint); }
+    .crumb a { color:var(--text-muted); text-decoration:none; transition:color 0.15s; }
+    .crumb a:hover { color:var(--teal); }
+    .ph { padding:36px 0 28px; }
+    .ph .badge { display:inline-block; padding:3px 10px; background:var(--teal-dim); border:1px solid rgba(61,216,197,0.18); border-radius:3px; font-family:var(--pixel); font-size:0.55rem; color:var(--teal); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; }
+    .ph h1 { font-size:1.7rem; font-weight:700; color:var(--text-bright); letter-spacing:-0.02em; margin-bottom:8px; }
+    .sec { padding:24px 0; border-top:1px solid var(--border); }
+    .sec h2 { font-size:1rem; font-weight:700; color:var(--text-bright); margin-bottom:10px; }
+    .sec p { color:var(--text-muted); margin-bottom:12px; font-size:0.9rem; }
+    .sec a { color:var(--teal); text-decoration:none; border-bottom:1px dashed var(--border-lit); }
+    .sec a:hover { border-color:var(--teal); }
+    .back-link { display:inline-flex; align-items:center; gap:6px; margin-top:16px; padding:8px 14px; background:var(--teal-dim); border:1px solid rgba(61,216,197,0.18); border-radius:4px; color:var(--teal); text-decoration:none; font-family:var(--mono); font-size:0.72rem; transition:all 0.15s; }
+    .back-link:hover { background:rgba(61,216,197,0.18); border-color:var(--teal); }
+    footer { border-top:1px solid var(--border); padding:28px 20px; text-align:center; font-family:var(--mono); font-size:0.68rem; color:var(--text-faint); }
+    footer a { color:var(--text-muted); text-decoration:none; }
+    footer a:hover { color:var(--teal); }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <nav class="crumb">
-      <a href="/">hawktec</a><span class="sep">/</span><span>privacy</span>
-    </nav>
-
+    <nav class="crumb"><a href="/">hawktec</a><span>/</span><span>privacy</span></nav>
     <div class="ph">
       <div class="badge">Legal</div>
       <h1>HawkTec Website Privacy Policy</h1>
     </div>
-
     <section class="sec">
       <h2>Information Collection and Use</h2>
       <p>We may collect certain personally identifiable information that you voluntarily provide to us, such as your name and email address, when you contact us through Amazon or other communication channels. We use this information solely for the purpose of responding to your inquiries and providing you with relevant updates and information.</p>
     </section>
-
     <section class="sec">
       <h2>Log Data</h2>
       <p>Like many website operators, we collect information that your browser sends whenever you visit our website. This may include information such as your computer's Internet Protocol (IP) address, browser type, browser version, the pages of our website that you visit, the time and date of your visit, the time spent on those pages, and other statistics. This information is used for analyzing trends, administering the site, and gathering demographic information for internal purposes. It is not linked to any personally identifiable information.</p>
     </section>
-
     <section class="sec">
       <h2>Cookies</h2>
       <p>Our website may use cookies to enhance your browsing experience. Cookies are small files that are stored on your computer's hard drive through your web browser. They enable us to recognize your browser and capture and remember certain information. You can choose to disable or selectively turn off our cookies or third-party cookies in your browser settings. However, please note that disabling cookies may affect the functionality of our website.</p>
     </section>
-
     <section class="sec">
       <h2>Third-Party Websites</h2>
       <p>Our website may contain links to third-party websites, including Amazon.com. These websites have their own privacy policies, and we are not responsible for their content or practices. We encourage you to review the privacy policies of these websites before providing any personal information.</p>
     </section>
-
     <section class="sec">
       <h2>Data Security</h2>
       <p>We implement a variety of security measures to maintain the safety of your personal information when you access our website. However, please be aware that no security measures are perfect or impenetrable, and we cannot guarantee the absolute security of your information.</p>
     </section>
-
     <section class="sec">
       <h2>Changes to the Privacy Policy</h2>
       <p>We reserve the right to update or change this Privacy Policy at any time. Any changes will be effective immediately upon posting the revised Privacy Policy on this page. We encourage you to review this Privacy Policy periodically for any updates.</p>
     </section>
-
     <section class="sec" style="border-top:none;padding-top:8px;">
       <a href="/" class="back-link">← Back to Home</a>
     </section>
   </div>
-
-  <footer><div class="wrap"><p>&copy; <script>document.write(new Date().getFullYear())</script> HawkTec. All rights reserved. | <a href="/privacy/">Privacy Policy</a> | <a href="/">Home</a></p></div></footer>
+  <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> HawkTec. All rights reserved. | <a href="/privacy/">Privacy Policy</a> | <a href="/">Home</a></p></footer>
 </body>
 </html>
