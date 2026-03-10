@@ -8,48 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    :root {
-      --bg:#0b0e14; --bg-card:#151b27; --border:#1c2333; --border-lit:#2a3550;
-      --teal:#3dd8c5; --teal-dim:rgba(61,216,197,0.12); --teal-glow:rgba(61,216,197,0.25);
-      --amber:#f0b429;
-      --text:#c9d1de; --text-bright:#eaf0f9; --text-muted:#6b7a94; --text-faint:#3d4b63;
-      --pixel:'Silkscreen',monospace; --mono:'Space Mono',monospace; --sans:'DM Sans',sans-serif;
-    }
-    html { scroll-behavior:smooth; }
-    body { font-family:var(--sans); background:var(--bg); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased; }
-    body::after { content:''; position:fixed; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px); pointer-events:none; z-index:9999; }
-    .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
-    .crumb { padding:20px 0; font-family:var(--mono); font-size:0.72rem; display:flex; align-items:center; gap:8px; color:var(--text-faint); }
-    .crumb a { color:var(--text-muted); text-decoration:none; transition:color 0.15s; }
-    .crumb a:hover { color:var(--teal); }
-    .ph { padding:36px 0 28px; }
-    .ph .badge { display:inline-block; padding:3px 10px; background:var(--teal-dim); border:1px solid rgba(61,216,197,0.18); border-radius:3px; font-family:var(--pixel); font-size:0.55rem; color:var(--teal); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; }
-    .ph h1 { font-size:1.7rem; font-weight:700; color:var(--text-bright); letter-spacing:-0.02em; margin-bottom:8px; }
-    .ph p { color:var(--text-muted); font-size:0.95rem; }
-    .sec { padding:24px 0; border-top:1px solid var(--border); }
-    .sec h2 { font-size:1rem; font-weight:700; color:var(--text-bright); margin-bottom:12px; }
-    .sec p { color:var(--text-muted); margin-bottom:10px; font-size:0.9rem; }
-    .sec a { color:var(--teal); text-decoration:none; border-bottom:1px dashed var(--border-lit); transition:border-color 0.15s; }
-    .sec a:hover { border-color:var(--teal); }
-    .sec code { font-family:var(--mono); font-size:0.82rem; color:var(--teal); background:var(--teal-dim); padding:1px 5px; border-radius:3px; }
-    .steps { list-style:none; counter-reset:s; margin:14px 0; }
-    .steps li { counter-increment:s; padding:12px 14px 12px 48px; position:relative; background:var(--bg-card); border:1px solid var(--border); border-radius:5px; margin-bottom:6px; color:var(--text-muted); font-size:0.88rem; }
-    .steps li::before { content:counter(s); position:absolute; left:14px; top:12px; width:22px; height:22px; background:var(--teal-dim); border:1px solid rgba(61,216,197,0.18); border-radius:4px; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:0.68rem; font-weight:700; color:var(--teal); }
-    .codeblock { background:var(--bg-card); border:1px solid var(--border); border-radius:5px; padding:14px 16px; font-family:var(--mono); font-size:0.78rem; color:var(--text-muted); overflow-x:auto; margin:12px 0; white-space:pre; line-height:1.8; }
-    .compat { font-family:var(--mono); font-size:0.78rem; color:var(--text-muted); display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
-    .compat span { padding:4px 10px; background:var(--bg-card); border:1px solid var(--border); border-radius:4px; }
-    .faq { padding:16px 0; border-bottom:1px solid var(--border); }
-    .faq:last-child { border-bottom:none; }
-    .faq strong { display:block; color:var(--text-bright); font-weight:600; font-size:0.9rem; margin-bottom:4px; }
-    .faq p { margin:0; font-size:0.85rem; }
-    .cta { display:inline-flex; align-items:center; gap:7px; padding:10px 18px; background:var(--teal); color:var(--bg); border-radius:4px; font-size:0.82rem; font-weight:600; text-decoration:none; border:none; transition:all 0.15s; margin-top:8px; }
-    .cta:hover { background:#50e6d3; box-shadow:0 2px 12px var(--teal-glow); }
-    footer { border-top:1px solid var(--border); padding:28px 20px; text-align:center; font-family:var(--mono); font-size:0.68rem; color:var(--text-faint); }
-    footer a { color:var(--text-muted); text-decoration:none; transition:color 0.15s; }
-    footer a:hover { color:var(--teal); }
-  </style>
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
   <div class="wrap">
@@ -57,47 +16,57 @@
     <div class="ph">
       <div class="badge">Product Help</div>
       <h1>R4xMP Setup &amp; Troubleshooting</h1>
-      <p>Everything you need to get your HawkTec R4xMP up and running.</p>
     </div>
+    <section class="sec">
+      <h2>R4xMP Details</h2>
+      <ul class="details-list">
+        <li>Simple plug and play — just add your own ROM files</li>
+        <li>Compatible with Nintendo DS, DS Lite, DSi, 2DS, and 3DS</li>
+        <li>No timebomb — no expiration date</li>
+      </ul>
+    </section>
     <section class="sec">
       <h2>Quick Start</h2>
       <ol class="steps">
-        <li>Get a micro SD card — 32 GB or smaller, formatted FAT32.</li>
-        <li>Download the R4xMP kernel from the link on your packaging, or from <a href="https://www.r4xmp.com" target="_blank" rel="noopener">r4xmp.com</a>.</li>
-        <li>Extract the zip directly onto the root of the micro SD.</li>
-        <li>Insert the micro SD into the R4xMP, insert the cart into your DS.</li>
+        <li>Download the R4xMP firmware and extract it onto a FAT32-formatted micro SD:<br><a href="../downloads/Ace3DS+_R4iLS_Wood_R4_1.62.zip" download class="cta cta-download"><img src="../assets/download_button.png" alt="Download"><span class="dl-text">Download R4xMP Firmware<small>Version Ace3DS+_R4iLS_Wood_R4_1.62</small></span></a></li>
+        <li>Insert micro SD into the R4xMP, insert the cart into your DS.</li>
         <li>Power on — the R4xMP menu should load.</li>
       </ol>
     </section>
     <section class="sec">
       <h2>SD Card Requirements</h2>
-      <p>The R4xMP does <strong>not</strong> include a micro SD card. Use a standard micro SDHC card, 32 GB max, formatted FAT32. Larger cards need reformatting via a tool like <a href="http://ridgecrop.co.uk/index.htm?guiformat.htm" target="_blank" rel="noopener">guiformat</a>.</p>
+      <p>The R4xMP does <strong>not</strong> include a micro SD card. The card <strong>must</strong> be formatted as FAT32. Cards 32 GB or smaller can be formatted directly through your operating system. Cards larger than 32 GB require a third-party formatting tool on Windows — <a href="https://rufus.ie/en/" target="_blank" rel="noopener">Rufus</a> is a commonly recommended option.</p>
     </section>
     <section class="sec">
       <h2>Expected File Structure</h2>
       <p>After extraction, your SD root should look like:</p>
       <div class="codeblock">microSD/
-├── _DSMENU.DAT
+├── __rpg/
+├── GBA ROMS/
+├── GBC ROMS/
+├── NDS ROMS/
+├── NES ROMS/
 ├── _DS_MENU.DAT
-└── _rpg/
-    └── ...</div>
-    </section>
-    <section class="sec">
-      <h2>Compatibility</h2>
-      <div class="compat">
-        <span>DS</span><span>DS Lite</span><span>DSi</span>
-        <span>2DS</span><span>3DS</span><span>New 2DS XL</span><span>New 3DS XL</span>
+├── _DSMENU.DAT
+└── README</div>
+      <div class="file-warning">
+        <span class="ico">&#x26A0;</span>
+        <p>These files <strong>must</strong> be in the root directory of your micro SD card, not inside any folders. Often, these files end up in a subfolder when extracting. Move them from the folder to the main directory of the micro SD card to resolve the issue.</p>
       </div>
     </section>
     <section class="sec">
       <h2>FAQ</h2>
       <div class="faq">
         <strong>"Can't open _dsmenu.dat"</strong>
-        <p>Ensure <code>_DSMENU.DAT</code>, <code>_DS_MENU.DAT</code>, and the <code>_rpg</code> folder are in the <em>root</em> of your SD — not inside subfolders.</p>
+        <p>Ensure <code>_DSMENU.DAT</code>, <code>_DS_MENU.DAT</code>, and the <code>__rpg</code> folder are in the <em>root</em> of your SD — not inside subfolders.</p>
       </div>
       <div class="faq">
         <strong>"SD/TF card error"</strong>
         <p>Reformat the micro SD card to FAT32 using a full format (not Quick Format). Use a card rated Class 10 or higher, 32 GB or smaller.</p>
+      </div>
+      <div class="faq">
+        <strong>I'm seeing a black screen or error when I try to use the R4!</strong>
+        <p>Make sure the firmware files are extracted to the root of the SD card, not inside a subfolder. Also verify the card is formatted as FAT32 and is 32 GB or smaller.</p>
       </div>
       <div class="faq">
         <strong>Does this have a timebomb?</strong>
@@ -107,18 +76,17 @@
         <strong>Can I use Twilight Menu++?</strong>
         <p>Yes — many users prefer it. Guides are available on YouTube and the Twilight Menu++ GitHub.</p>
       </div>
-      <div class="faq">
-        <strong>What SD size should I use?</strong>
-        <p>32 GB or smaller. Larger cards need FAT32 formatting with a third-party tool.</p>
-      </div>
-      <div class="faq">
-        <strong>Need more help?</strong>
-        <p>If you bought from the official Amazon or eBay listing, message through Amazon with your order ID.</p>
-      </div>
+    </section>
+    <section class="sec">
+      <h2>Customer Support</h2>
+      <p>If you are an R4xMP customer who purchased from my official listings on Amazon or eBay, feel free to contact me with any questions or troubleshooting needs.</p>
+      <p><strong style="color:var(--amber);">Note:</strong> I can only assist customers who purchased through Amazon or eBay. Please include your order ID when contacting me.</p>
+      <a class="cta cta-contact" onclick="var f=document.getElementById('contact-form');f.classList.toggle('active');if(f.classList.contains('active')&&!f.querySelector('iframe')){f.innerHTML='<iframe src=\'https://docs.google.com/forms/d/e/1FAIpQLSd63X026OBXsieIicHHKDoFNnDsHrKibqNSv0fohB1qXCkqIQ/viewform?embedded=true\' loading=\'lazy\'></iframe>';}">Contact Me →</a>
+      <div id="contact-form" class="form-embed"></div>
     </section>
     <section class="sec">
       <h2>Purchase</h2>
-      <a href="https://www.amazon.com/2023-Update-Adapter-Memory-Timebomb/dp/B0C8KXD15F" target="_blank" rel="noopener" class="cta">View on Amazon →</a>
+      <a href="https://www.amazon.com/2023-Update-Adapter-Memory-Timebomb/dp/B0C8KXD15F" target="_blank" rel="noopener" class="cta cta-amazon"><img src="../assets/amazon-logo-a.png" alt="Amazon">View on Amazon →</a>
     </section>
   </div>
   <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> HawkTec. All rights reserved. | <a href="/privacy/">Privacy Policy</a> | <a href="/">Home</a></p></footer>

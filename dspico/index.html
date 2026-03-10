@@ -8,55 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    :root {
-      --bg:#0b0e14; --bg-card:#151b27; --border:#1c2333; --border-lit:#2a3550;
-      --teal:#3dd8c5; --teal-dim:rgba(61,216,197,0.12); --teal-glow:rgba(61,216,197,0.25);
-      --amber:#f0b429; --amber-dim:rgba(240,180,41,0.12);
-      --text:#c9d1de; --text-bright:#eaf0f9; --text-muted:#6b7a94; --text-faint:#3d4b63;
-      --pixel:'Silkscreen',monospace; --mono:'Space Mono',monospace; --sans:'DM Sans',sans-serif;
-    }
-    html { scroll-behavior:smooth; }
-    body { font-family:var(--sans); background:var(--bg); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased; }
-    body::after { content:''; position:fixed; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px); pointer-events:none; z-index:9999; }
-    .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
-    .crumb { padding:20px 0; font-family:var(--mono); font-size:0.72rem; display:flex; align-items:center; gap:8px; color:var(--text-faint); }
-    .crumb a { color:var(--text-muted); text-decoration:none; transition:color 0.15s; }
-    .crumb a:hover { color:var(--teal); }
-    .ph { padding:36px 0 28px; }
-    .ph .badge { display:inline-block; padding:3px 10px; background:var(--teal-dim); border:1px solid rgba(61,216,197,0.18); border-radius:3px; font-family:var(--pixel); font-size:0.55rem; color:var(--teal); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; }
-    .ph h1 { font-size:1.7rem; font-weight:700; color:var(--text-bright); letter-spacing:-0.02em; margin-bottom:8px; }
-    .ph p { color:var(--text-muted); font-size:0.95rem; }
-    .sec { padding:24px 0; border-top:1px solid var(--border); }
-    .sec h2 { font-size:1rem; font-weight:700; color:var(--text-bright); margin-bottom:12px; }
-    .sec p { color:var(--text-muted); margin-bottom:10px; font-size:0.9rem; }
-    .sec a { color:var(--teal); text-decoration:none; border-bottom:1px dashed var(--border-lit); transition:border-color 0.15s; }
-    .sec a:hover { border-color:var(--teal); }
-    .steps { list-style:none; counter-reset:s; margin:14px 0; }
-    .steps li { counter-increment:s; padding:12px 14px 12px 48px; position:relative; background:var(--bg-card); border:1px solid var(--border); border-radius:5px; margin-bottom:6px; color:var(--text-muted); font-size:0.88rem; }
-    .steps li::before { content:counter(s); position:absolute; left:14px; top:12px; width:22px; height:22px; background:var(--teal-dim); border:1px solid rgba(61,216,197,0.18); border-radius:4px; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:0.68rem; font-weight:700; color:var(--teal); }
-    .notice { background:var(--amber-dim); border:1px solid rgba(240,180,41,0.2); border-radius:5px; padding:14px 16px; margin-bottom:24px; display:flex; gap:10px; align-items:flex-start; font-size:0.85rem; color:var(--text-muted); }
-    .notice .ico { font-size:1rem; flex-shrink:0; margin-top:1px; }
-    .notice a { color:var(--teal); text-decoration:none; border-bottom:1px dashed var(--border-lit); }
-    .notice a:hover { border-color:var(--teal); }
-    .specs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin:14px 0; }
-    .spec { background:var(--bg-card); border:1px solid var(--border); border-radius:5px; padding:12px 14px; }
-    .spec .lbl { font-family:var(--pixel); font-size:0.5rem; color:var(--text-faint); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px; }
-    .spec .val { font-size:0.88rem; font-weight:600; color:var(--text-bright); }
-    .compat { font-family:var(--mono); font-size:0.78rem; color:var(--text-muted); display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
-    .compat span { padding:4px 10px; background:var(--bg-card); border:1px solid var(--border); border-radius:4px; }
-    .faq { padding:16px 0; border-bottom:1px solid var(--border); }
-    .faq:last-child { border-bottom:none; }
-    .faq strong { display:block; color:var(--text-bright); font-weight:600; font-size:0.9rem; margin-bottom:4px; }
-    .faq p { margin:0; font-size:0.85rem; }
-    .cta { display:inline-flex; align-items:center; gap:7px; padding:10px 18px; background:var(--teal); color:var(--bg); border-radius:4px; font-size:0.82rem; font-weight:600; text-decoration:none; border:none; transition:all 0.15s; margin-top:8px; }
-    .cta:hover { background:#50e6d3; box-shadow:0 2px 12px var(--teal-glow); }
-    footer { border-top:1px solid var(--border); padding:28px 20px; text-align:center; font-family:var(--mono); font-size:0.68rem; color:var(--text-faint); }
-    footer a { color:var(--text-muted); text-decoration:none; transition:color 0.15s; }
-    footer a:hover { color:var(--teal); }
-    @media (max-width:640px) { .specs { grid-template-columns:1fr 1fr; } }
-  </style>
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
   <div class="wrap">
@@ -71,34 +23,39 @@
       <p>Built on the open-source <a href="https://www.lnh-team.org/dspico_hw.html" target="_blank" rel="noopener">LNH Team</a> platform. Firmware and community resources are actively maintained.</p>
     </div>
     <section class="sec">
-      <h2>Specifications</h2>
-      <div class="specs">
-        <div class="spec"><div class="lbl">Controller</div><div class="val">RP2040</div></div>
-        <div class="spec"><div class="lbl">SD Speed</div><div class="val">6 MB/s</div></div>
-        <div class="spec"><div class="lbl">Flash</div><div class="val">16 Mbit</div></div>
-        <div class="spec"><div class="lbl">Power</div><div class="val">~57 mW</div></div>
-        <div class="spec"><div class="lbl">Voltage</div><div class="val">3.3V</div></div>
-        <div class="spec"><div class="lbl">Included SD</div><div class="val">8 GB</div></div>
-      </div>
-    </section>
-    <section class="sec">
       <h2>Quick Start</h2>
+      <div class="tip">
+        <span class="ico">&#x1F4CC;</span>
+        <p>To flash up-to-date firmware or use something other than the pre-flashed WRFUxxed kernel that comes with the HawkTec DSPico, follow <a href="https://www.youtube.com/watch?v=o7IuaewHNTQ" target="_blank" rel="noopener">this guide on YouTube</a>. This <a href="https://www.reddit.com/r/flashcarts/comments/1r8h7qh/ds_pico_setup/" target="_blank" rel="noopener">Reddit discussion</a> is also helpful for setting up the firmware .uf2 file.</p>
+      </div>
       <ol class="steps">
-        <li>Download the latest firmware from <a href="https://www.lnh-team.org/dspico_hw.html" target="_blank" rel="noopener">lnh-team.org</a>.</li>
-        <li>Format the included 8 GB micro SD as FAT32 if needed.</li>
-        <li>Extract firmware files onto the root of the micro SD.</li>
+        <li>Download the HawkTec DSPico filesystem and extract it onto a FAT32-formatted micro SD:<br><a href="../downloads/HWKTC_DSPICO_V1.0.0.zip" download class="cta cta-download"><img src="../assets/download_button.png" alt="Download"><span class="dl-text">Download HawkTec Pico Launcher Filesystem<small>Version HWKTC_DSPICO_V1.0.0</small></span></a></li>
         <li>Insert micro SD into the DSPico, insert the cart into your DS.</li>
         <li>Power on — Pico Launcher should appear.</li>
       </ol>
     </section>
     <section class="sec">
-      <h2>Compatibility</h2>
-      <p>Works in both DS and DSi modes:</p>
-      <div class="compat">
-        <span>DS</span><span>DS Lite</span><span>DSi</span>
-        <span>2DS</span><span>3DS</span><span>New 2DS XL</span><span>New 3DS XL</span>
+      <h2>SD Card Requirements</h2>
+      <p>The micro SD card <strong>must</strong> be formatted as FAT32. Cards 32 GB or smaller can be formatted directly through your operating system. Cards larger than 32 GB require a third-party formatting tool on Windows — <a href="https://rufus.ie/en/" target="_blank" rel="noopener">Rufus</a> is a commonly recommended option.</p>
+    </section>
+    <section class="sec">
+      <h2>Expected File Structure</h2>
+      <p>After extraction, your SD root should look like:</p>
+      <div class="codeblock">microSD/
+├── _pico/
+├── GBA ROMS/
+├── GBC ROMS/
+├── NDS ROMS/
+├── NES ROMS/
+├── shared1/
+├── shared2/
+├── sys/
+├── _picoboot.nds
+└── README</div>
+      <div class="file-warning">
+        <span class="ico">&#x26A0;</span>
+        <p>These files <strong>must</strong> be in the root directory of your micro SD card, not inside any folders. Often, these files end up in a folder (like "HWKTC_DSPICO_V1.0.0") when extracting the kernel files. Move them from the folder to the main directory of the micro SD card to resolve the issue.</p>
       </div>
-      <p>With DSi-mode support via WRFUxxed, the DSPico runs on unmodified DSi and 3DS consoles with full DSi-exclusive access.</p>
     </section>
     <section class="sec">
       <h2>FAQ</h2>
@@ -116,12 +73,19 @@
       </div>
       <div class="faq">
         <strong>Need help?</strong>
-        <p>If you purchased from the official Amazon listing, message through Amazon with your order ID.</p>
+        <p>If you purchased from the official Amazon listing, fill out the contact form below with your order ID.</p>
       </div>
     </section>
     <section class="sec">
+      <h2>Customer Support</h2>
+      <p>If you are a DSPico customer who purchased from my official listings on Amazon or eBay, feel free to contact me with any questions or troubleshooting needs.</p>
+      <p><strong style="color:var(--amber);">Note:</strong> I can only assist customers who purchased through Amazon or eBay. Please include your order ID when contacting me.</p>
+      <a class="cta cta-contact" onclick="var f=document.getElementById('contact-form');f.classList.toggle('active');if(f.classList.contains('active')&&!f.querySelector('iframe')){f.innerHTML='<iframe src=\'https://docs.google.com/forms/d/e/1FAIpQLSdp6ZReStK1zI6lmsmjh6R2j_i8qvBYtiC9VELwbWKGHkI4wg/viewform?embedded=true\' loading=\'lazy\'></iframe>';}">Contact Me →</a>
+      <div id="contact-form" class="form-embed"></div>
+    </section>
+    <section class="sec">
       <h2>Purchase</h2>
-      <a href="https://www.amazon.com/HawkTec-DSPico-Compatible-DS-Upgrade-Nintendo/dp/B0GQCL45W9" target="_blank" rel="noopener" class="cta">View on Amazon →</a>
+      <a href="https://www.amazon.com/HawkTec-DSPico-Compatible-DS-Upgrade-Nintendo/dp/B0GQCL45W9" target="_blank" rel="noopener" class="cta cta-amazon"><img src="../assets/amazon-logo-a.png" alt="Amazon">View on Amazon →</a>
     </section>
   </div>
   <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> HawkTec. All rights reserved. | <a href="/privacy/">Privacy Policy</a> | <a href="/">Home</a></p></footer>
