@@ -21,7 +21,7 @@ var PRODUCTS = [
     title:           "HawkTec Edition DSPico Flash Cart Compatible w/ NDS DS DSi 2DS 3DS (R4 Upgrade) – 8GB Micro SD Included",
     url:             "https://www.amazon.com/HawkTec-DSPico-Compatible-DS-Upgrade-Nintendo/dp/B0GQCL45W9",
     image_url:       "https://m.media-amazon.com/images/I/71nHVQiivnL._SL1500_.jpg",
-    price:           "",
+    price:           "25.99",
     stars:           "",
     review_count:    "",
     sales_per_month: "",
