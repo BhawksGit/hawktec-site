@@ -1,6 +1,6 @@
 # HawkTec
 
-**Flash carts and accessories for Nintendo DS, DSi, 2DS, and 3DS.**
+**Flash carts and memory card emulators for Nintendo DS, DSi, 2DS, 3DS, PlayStation 2, and PlayStation 1.**
 
 🌐 [www.hawktec.shop](https://www.hawktec.shop) · 🛒 [Amazon Storefront](https://www.amazon.com/s?me=A1SBDFOWM213N&marketplaceID=ATVPDKIKX0DER)
 
