@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SD2PSXTD Help – HawkTec</title>
+  <meta name="description" content="Setup guide, firmware download, and troubleshooting for the HawkTec Modder's Edition SD2PSXTD PS1/PS2 memory card.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="crumb"><a href="/">hawktec</a><span>/</span><span>sd2psxtd</span></nav>
+    <div class="ph">
+      <div class="badge">Product Help</div>
+      <h1>SD2PSXTD Setup &amp; Help</h1>
+      <p>Guide, firmware, and troubleshooting for the HawkTec Modder's Edition SD2PSXTD Gen2 memory card for PS2, PS1, and PS one.</p>
+    </div>
+    <div class="notice">
+      <span class="ico">⚡</span>
+      <p>Runs the open-source <a href="https://sd2psxtd.github.io/" target="_blank" rel="noopener">sd2psXtd firmware</a>, an enhanced build of the original sd2psx by @xyzz. Firmware and community resources are actively maintained.</p>
+    </div>
+    <section class="sec">
+      <h2>SD2PSXTD Details</h2>
+      <div class="gallery">
+        <img src="img/main.jpg" alt="HawkTec Modder's Edition SD2PSXTD memory card with USB microSD reader" loading="lazy">
+        <img src="img/exploded-view.jpg" alt="Exploded view: 3D-printed top shell, slot-in OLED, RP2040 main board, microSD slot, base plate" loading="lazy">
+      </div>
+      <ul class="details-list">
+        <li>Automatic game identification creates a dedicated virtual memory card (VMC) for every game</li>
+        <li>Load PS2 games from microSD with Open PS2 Loader MMCE</li>
+        <li>PS2 virtual cards in 1, 2, 4, 8, 16, 32, and 64 MB sizes, plus 128 KB PS1 / PS one cards</li>
+        <li>Launches FreeMcBoot, OpenTuna, FreePSXBoot, Unirom, and Tonyhax</li>
+        <li>128 × 64 SSD1306 OLED display shows system info, game IDs, and settings</li>
+        <li>USB-C port for firmware updates</li>
+        <li>Repair-friendly 3D-printed case: opens easily, reprint it in any color, and the OLED is a slot-in module (no soldering)</li>
+        <li>Ships pre-flashed. A USB microSD reader is included; the microSD card is not</li>
+      </ul>
+      <div class="compat"><span>PS2</span><span>PS1</span><span>PS one</span></div>
+    </section>
+    <section class="sec">
+      <h2>Quick Start</h2>
+      <ol class="steps">
+        <li>Format a blank microSD card as FAT32 and insert it into the SD2PSXTD.</li>
+        <li>Plug the card into your PlayStation and power on. The OLED should light up and the card works as a normal memory card right away.</li>
+        <li>To play games from the microSD card, follow <strong>Playing Games with OPL MMCE</strong> below.</li>
+      </ol>
+    </section>
+    <section class="sec">
+      <h2>SD Card Requirements</h2>
+      <p>The SD2PSXTD does <strong>not</strong> include a micro SD card. The card <strong>must</strong> be formatted as FAT32. Cards 32 GB or smaller can be formatted directly through your operating system. Cards larger than 32 GB require a third-party formatting tool on Windows — <a href="https://rufus.ie/en/" target="_blank" rel="noopener">Rufus</a> is a commonly recommended option.</p>
+      <p>Use a good-quality, name-brand card. Fast cards give smoother game loading, and virtual memory cards larger than 8 MB can corrupt on slow or low-quality cards. Because the card is FAT32, a single game file can't be larger than 4 GB.</p>
+    </section>
+    <section class="sec">
+      <h2>Playing Games with OPL MMCE</h2>
+      <div class="tip">
+        <span class="ico">&#x1F4CC;</span>
+        <p>You need the MMCE build of Open PS2 Loader. Download it from the <a href="https://github.com/ps2-mmce/Open-PS2-Loader/releases" target="_blank" rel="noopener">OPL MMCE releases page</a> (MMCE Beta 2 or newer). The standard OPL release can't load games from the memory card.</p>
+      </div>
+      <ol class="steps">
+        <li>Insert the memory card into the console and launch Open PS2 Loader MMCE.</li>
+        <li>Open <strong>Settings → MMCE Settings</strong> and set the options below.</li>
+        <li>Choose OK and save your changes. When prompted, select OK to copy the required folders to the microSD card.</li>
+        <li>Power off the console, remove the memory card, and put the microSD card into your PC.</li>
+        <li>Drop your <code>.ISO</code> files into the matching folder: <code>DVD</code> for DVD-based games, <code>CD</code> for CD-based games. CHD and CUE/BIN files are not supported.</li>
+        <li>Reinsert the memory card, relaunch OPL MMCE, and press <strong>O</strong> to bring up your game list.</li>
+      </ol>
+      <div class="codeblock">MMCE Start Mode .............. Auto
+MMCE Slot .................... Auto
+IGR Boot Card Slots .......... Both
+MMCE Prefix Path ............. Not Set
+Wait Cycles After ACK Low .... 0
+Use Timeout Alarms ........... On</div>
+    </section>
+    <section class="sec">
+      <h2>Expected File Structure</h2>
+      <p>After the card has been used and OPL has created its folders, your SD root will look something like:</p>
+      <div class="codeblock">microSD/
+├── .sd2psx/
+│   └── settings.ini
+├── MemoryCards/
+│   ├── PS1/
+│   └── PS2/
+│       ├── BOOT/
+│       └── &lt;game ID cards&gt;/
+├── CD/
+├── DVD/
+└── (other OPL folders)</div>
+      <div class="file-warning">
+        <span class="ico">&#x26A0;</span>
+        <p>Keep <code>.sd2psx</code> and <code>MemoryCards</code> in the root of the microSD card. <code>MemoryCards</code> holds all of your saves. Back it up by copying it to your PC.</p>
+      </div>
+    </section>
+    <section class="sec">
+      <h2>Buttons &amp; Menu</h2>
+      <ul class="details-list">
+        <li>Use the two front buttons to switch cards and channels on the main screen</li>
+        <li>Press both buttons together to open the settings menu; press both again to return</li>
+        <li><strong>Boot Mode</strong> switches between PS1 and PS2. Reinsert the card when prompted. If the switch doesn't take, repeat the steps</li>
+        <li><strong>PS2 Settings → Size</strong> sets the virtual card size (1 MB to 64 MB). 8 MB is the standard size and the safest choice</li>
+        <li>Other menus: PS1 Settings, Display, and Info (firmware version)</li>
+      </ul>
+      <p>On PS1, you can enable controller combos in PS1 Settings. Hold <strong>L1 + R1 + L2 + R2</strong> and press Up/Down for the next/previous card, Right/Left for the next/previous channel, or Select for the boot card.</p>
+    </section>
+    <section class="sec">
+      <h2>Firmware Update</h2>
+      <p>The SD2PSXTD ships pre-flashed. You only need to do this to update or restore the firmware.</p>
+      <ol class="steps">
+        <li>Download the firmware file:<br><a href="../downloads/sd2psxtd.uf2" download class="cta cta-download"><img src="../assets/download_button.png" alt="Download"><span class="dl-text">Download SD2PSXTD Firmware<small>sd2psxtd.uf2</small></span></a></li>
+        <li>Unplug the memory card from your console. Hold the <strong>BOOT</strong> button while connecting it to your PC with a USB-C data cable.</li>
+        <li>A drive named <code>RPI-RP2</code> will appear. Drag <code>sd2psxtd.uf2</code> onto it.</li>
+        <li>Wait for the drive to disappear on its own. The card restarts with the new firmware.</li>
+      </ol>
+      <div class="tip">
+        <span class="ico">&#x1F4CC;</span>
+        <p>Newer official releases are on the <a href="https://sd2psxtd.github.io/download" target="_blank" rel="noopener">sd2psXtd download page</a>. Use the <code>sd2psx.uf2</code> file listed for SD2PSX / PSXMemCard Gen2.</p>
+      </div>
+    </section>
+    <section class="sec">
+      <h2>Replacing the OLED Screen</h2>
+      <div class="gallery">
+        <img src="img/screen-swap.jpg" alt="The SSD1306 OLED module lifts out of a 4-pin socket" loading="lazy">
+        <img src="img/any-color.jpg" alt="3D-printed SD2PSXTD cases in different colors" loading="lazy">
+      </div>
+      <ol class="steps">
+        <li>Remove the M2 screws from the base plate and lift off the top shell.</li>
+        <li>Pull the OLED module straight up out of its 4-pin socket.</li>
+        <li>Press in a replacement SSD1306 128 × 64 I2C OLED (0.96-inch, 4-pin), then refit the shell and screws.</li>
+      </ol>
+    </section>
+    <section class="sec">
+      <h2>FAQ / Troubleshooting</h2>
+      <div class="faq">
+        <strong>My games don't show up in OPL</strong>
+        <p>Make sure you're running the OPL <em>MMCE</em> build, that your MMCE Settings match the list above, and that your games are <code>.ISO</code> files inside the <code>DVD</code> or <code>CD</code> folder. CHD and CUE/BIN won't appear.</p>
+      </div>
+      <div class="faq">
+        <strong>The card isn't detected, or the screen stays blank</strong>
+        <p>Reseat the memory card and check that the microSD card is fully inserted. Reformat the microSD as FAT32, or try another name-brand card.</p>
+      </div>
+      <div class="faq">
+        <strong>A game freezes, stutters, or loads slowly</strong>
+        <p>Use a fast, good-quality microSD card and keep the virtual card size at 8 MB. Some games load a little slower than from disc. Not every game works with OPL, but most do.</p>
+      </div>
+      <div class="faq">
+        <strong>Saves aren't going to a per-game card</strong>
+        <p>Check that Game ID is turned on in PS2 Settings. Each game's card is created automatically the first time you launch it.</p>
+      </div>
+      <div class="faq">
+        <strong>Switching Boot Mode didn't work</strong>
+        <p>Reinsert the card when prompted and repeat the steps. On a PS1 or PS one, set Boot Mode to PS1 manually.</p>
+      </div>
+      <div class="faq">
+        <strong>FreeMcBoot or other homebrew won't start</strong>
+        <p>The SD2PSXTD is usually not the problem. Reinstall or replace the homebrew. Ready-made boot card images (FreeMcBoot, PS2BBL, OpenTuna, FreePSXBoot) are on the <a href="https://sd2psxtd.github.io/exploits.html" target="_blank" rel="noopener">sd2psXtd homebrew page</a>.</p>
+      </div>
+      <div class="faq">
+        <strong>The RPI-RP2 drive doesn't appear when updating</strong>
+        <p>Hold BOOT <em>before</em> plugging in, and keep holding it until the drive shows up. Some USB-C cables only carry power, so try a cable you know carries data.</p>
+      </div>
+      <div class="faq">
+        <strong>Can I use it with a multitap?</strong>
+        <p>Not on a PS1. Using the card in PS2 or dynamic mode on a PS1 multitap <strong style="color:var(--amber);">will damage the multitap</strong>.</p>
+      </div>
+      <div class="faq">
+        <strong>How do I back up my saves?</strong>
+        <p>Remove the microSD card, open it on a PC, and copy the <code>MemoryCards</code> folder somewhere safe.</p>
+      </div>
+      <div class="faq">
+        <strong>More resources</strong>
+        <p><a href="https://sd2psxtd.github.io/" target="_blank" rel="noopener">sd2psXtd docs</a> · <a href="https://sd2psxtd.github.io/homebrew" target="_blank" rel="noopener">MMCE-compatible apps</a> · <a href="https://github.com/sd2psXtd/firmware" target="_blank" rel="noopener">Firmware on GitHub</a></p>
+      </div>
+    </section>
+    <section class="sec">
+      <h2>Customer Support</h2>
+      <p>If you are an SD2PSXTD customer who purchased from my official listings on Amazon or eBay, feel free to contact me with any questions or troubleshooting needs.</p>
+      <p><strong style="color:var(--amber);">Note:</strong> I can only assist customers who purchased through Amazon or eBay. Please include your order ID when contacting me.</p>
+      <a class="cta cta-contact" onclick="var f=document.getElementById('contact-form');f.classList.toggle('active');if(f.classList.contains('active')&&!f.querySelector('iframe')){f.innerHTML='<iframe src=\'https://docs.google.com/forms/d/e/1FAIpQLSdp6ZReStK1zI6lmsmjh6R2j_i8qvBYtiC9VELwbWKGHkI4wg/viewform?embedded=true\' loading=\'lazy\'></iframe>';}">Contact Me →</a>
+      <div id="contact-form" class="form-embed"></div>
+    </section>
+    <section class="sec">
+      <h2>Purchase</h2>
+      <a href="https://www.amazon.com/s?me=A1SBDFOWM213N&marketplaceID=ATVPDKIKX0DER" target="_blank" rel="noopener" class="cta cta-amazon"><img src="../assets/amazon-logo-a.png" alt="Amazon">View on Amazon →</a>
+    </section>
+  </div>
+  <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> HawkTec. All rights reserved. | <a href="/privacy/">Privacy Policy</a> | <a href="/">Home</a></p></footer>
+</body>
+</html>

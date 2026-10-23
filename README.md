@@ -18,6 +18,11 @@ The HawkTec Edition DSPico — an open-source flash cart built on the LNH Team p
 
 → [Buy on Amazon](https://www.amazon.com/HawkTec-DSPico-Compatible-DS-Upgrade-Nintendo/dp/B0GQCL45W9) · [Product Help](https://www.hawktec.shop/dspico/)
 
+### SD2PSXTD
+The HawkTec Modder's Edition SD2PSXTD Gen2 — a PS1/PS2 memory card emulator running the sd2psXtd firmware. Automatic per-game virtual memory cards, game loading with OPL MMCE, slot-in OLED, repair-friendly 3D-printed case.
+
+→ [Buy on Amazon](https://www.amazon.com/s?me=A1SBDFOWM213N&marketplaceID=ATVPDKIKX0DER) · [Product Help](https://www.hawktec.shop/sd2psxtd/)
+
 ---
 
 ## Support
