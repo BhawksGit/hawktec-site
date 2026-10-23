@@ -29,7 +29,7 @@ var PRODUCTS = [
   },
   {
     title:           "Modder's Edition SD2PSXTD Gen2 Memory Adapter Card | Works with PS2, PS1 & PS One – Virtual Memory Cards, Unlimited Save Storage, USB-C Firmware Updates",
-    url:             "https://www.amazon.com/s?me=A1SBDFOWM213N&marketplaceID=ATVPDKIKX0DER",
+    url:             "https://a.co/d/0iQEQ37O",
     image_url:       "/sd2psxtd/img/main.jpg",
     price:           "24.95",
     stars:           "",
